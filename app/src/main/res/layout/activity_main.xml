@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="221dp"
+        android:layout_height="173dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/logo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ПРИВЕТ"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <TextView android:id="@+id/tv_slogan" android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_marginStart="100dp" android:layout_marginTop="32dp" android:layout_marginEnd="100dp"
+        android:text="Ваш слоган\nс переносом строки" android:textAlignment="center"
+        android:textColor="#FFFFFF" android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome"/>
+
+    <Button android:id="@+id/btn_login" android:layout_width="321dp" android:layout_height="61dp"
+        android:layout_marginTop="50dp" android:backgroundTint="@color/green_primary"
+        android:onClick="login" android:text="Войти в аккаунт"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_slogan"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
