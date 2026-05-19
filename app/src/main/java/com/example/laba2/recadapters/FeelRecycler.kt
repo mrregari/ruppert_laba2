@@ -1,5 +1,4 @@
 package com.example.laba2.recadapters
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,27 +9,22 @@ import com.bumptech.glide.Glide
 import com.example.laba2.R
 import com.example.laba2.data.Mood
 
-class FeelRecycler(private val list: List<Mood>) : RecyclerView.Adapter<FeelRecycler.MVH>() {
-
-    class MVH(view: View) : RecyclerView.ViewHolder(view) {
-        val img: ImageView = view.findViewById(R.id.img)
-        val txt: TextView = view.findViewById(R.id.txt)
+class FeelRecycler(private var list: List<Mood> = emptyList()) : RecyclerView.Adapter<FeelRecycler.MVH>() {
+    class MVH(v: View) : RecyclerView.ViewHolder(v) {
+        val img: ImageView = v.findViewById(R.id.img)
+        val txt: TextView = v.findViewById(R.id.txt)
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MVH {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_mood, parent, false)
-        return MVH(view)
+    override fun onCreateViewHolder(p: ViewGroup, t: Int) = MVH(
+        LayoutInflater.from(p.context).inflate(R.layout.item_mood, p, false))
+    override fun onBindViewHolder(h: MVH, i: Int) {
+        val item = list[i]
+        h.txt.text = item.name
+        Glide.with(h.itemView.context).load(item.imageRes).placeholder(R.drawable.image_shape).into(h.img)
     }
+    override fun getItemCount() = list.size
 
-    override fun onBindViewHolder(holder: MVH, position: Int) {
-        val item = list[position]
-        holder.txt.text = item.name
-        Glide.with(holder.itemView.context)
-            .load(item.imageRes)
-            .placeholder(R.drawable.image_shape)
-            .into(holder.img)
+    fun setData(newList: List<Mood>) {
+        list = newList
+        notifyDataSetChanged()
     }
-
-    override fun getItemCount(): Int = list.size
 }
